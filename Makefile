@@ -1,4 +1,5 @@
 PKG_NAME := libassuan
-URL := ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.2.0.tar.bz2
+URL := ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.2.tar.bz2
+ARCHIVES :=
 
 include ../common/Makefile.common
