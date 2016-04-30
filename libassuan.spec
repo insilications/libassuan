@@ -4,7 +4,7 @@
 #
 Name     : libassuan
 Version  : 2.4.2
-Release  : 6
+Release  : 7
 URL      : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.2.tar.bz2
 Source0  : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.2.tar.bz2
 Summary  : No detailed summary available
