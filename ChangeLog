@@ -1,3 +1,52 @@
+2016-07-14  Werner Koch  <wk@gnupg.org>
+
+	Release 2.4.3.
+	* configure.ac: Set LT version to C7/A7/R3.
+	* Makefile.am (distcheck-hook): New.
+
+2016-07-13  Werner Koch  <wk@gnupg.org>
+
+	build: Update config.{guess,sub} to {2016-05-15,2016-06-20}.
+	* build-aux/config.guess: Update.
+	* build-aux/config.sub: Update.
+
+	Improve test for inet_pton on Solaris.
+	* configure.ac (HAVE_INET_PTON): Add a fallback test.
+
+	Allow socket redirection with assuan_socket_connect.
+	* src/assuan-socket-connect.c (assuan_socket_connect): Use
+	set_socketaddr function.
+
+	Speedup closing fds before an exec.
+	* src/system-posix.c [__linux__]: Include dirent.h.
+	(get_max_fds) [__linux__]: Return the actual used highest fd.
+
+2016-07-05  Justus Winter  <justus@g10code.com>
+
+	Fix distcheck.
+	* tests/Makefile.am (EXTRA_DIST): Drop compiled test.
+
+2016-06-25  Werner Koch  <wk@gnupg.org>
+
+	Fix minor memory leaks.
+	* src/assuan-pipe-connect.c (socketpair_connect): Always free
+	CHILD_FDS.
+	* src/assuan-uds.c (uds_sendfd): Clear CONTROL_U to silence Valgrind.
+	* tests/fdpassing.c (main): Free FNAME.
+
+	* src/assuan-handler.c (dispatch_command): Remove dead assignment.
+
+2016-01-15  Werner Koch  <wk@gnupg.org>
+
+	Improve getting of max. number of open fds.
+	* configure.ac (AC_CHECK_FUNCS): Add getrlimit.
+	* src/assuan-pipe-connect.c (MAX_OPEN_FDS): Remove non-used macro.
+	* src/system.c (MAX_OPEN_FDS): Remove non-used macro.
+	* src/system-posix.c: Include stdint.h, sys/time.h, sys/resource.h.
+	(MAX_OPEN_FDS): Remove non-used macro.
+	(get_max_fds): New.  Taken from gnupg/common/exechelp-posix.c.
+	(__assuan_spawn): Use it here.
+
 2015-12-02  Werner Koch  <wk@gnupg.org>
 
 	Release 2.4.2.
