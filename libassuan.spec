@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x249B39D24F25E3B6 (dshaw@jabberwocky.com)
 #
 Name     : libassuan
-Version  : 2.4.4
-Release  : 11
-URL      : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.4.tar.bz2
-Source0  : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.4.tar.bz2
-Source99 : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.4.tar.bz2.sig
+Version  : 2.4.5
+Release  : 12
+URL      : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.5.tar.bz2
+Source0  : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.5.tar.bz2
+Source99 : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.5.tar.bz2.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.1
@@ -60,16 +60,16 @@ lib components for the libassuan package.
 
 
 %prep
-%setup -q -n libassuan-2.4.4
+%setup -q -n libassuan-2.4.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1510977325
+export SOURCE_DATE_EPOCH=1512446609
 %configure --disable-static
-make  %{?_smp_mflags}
+make V=1  %{?_smp_mflags}
 
 %check
 export LANG=C
@@ -79,7 +79,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1510977325
+export SOURCE_DATE_EPOCH=1512446609
 rm -rf %{buildroot}
 %make_install
 
@@ -103,4 +103,4 @@ rm -rf %{buildroot}
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libassuan.so.0
-/usr/lib64/libassuan.so.0.7.4
+/usr/lib64/libassuan.so.0.7.5

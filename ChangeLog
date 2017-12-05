@@ -1,3 +1,22 @@
+2017-12-01  Werner Koch  <wk@gnupg.org>
+
+	Release 2.4.5.
+	+ commit a70eaa8a3347660cf2f66ada0fa82cf991a1d7a0
+
+
+2017-11-30  NIIBE Yutaka  <gniibe@fsij.org>
+
+	Wrap assuan_close for nPth.
+	+ commit 0b551de6ca57790c511f32755880bbeaa1cacf85
+	* src/assuan.h.in (_assuan_npth_close): New.
+	(_assuan_system_npth): Use _assuan_npth_close.
+
+2017-11-20  Ben Kibbey  <bjk@luxsci.net>
+
+	tests: Fix build.
+	+ commit a63c4f33d5c10173dd54e2af32b127aa49498bfe
+	* tests/fdpassing.c: Include config.h to define GPGRT_ENABLE_ES_MACROS.
+
 2017-11-16  Werner Koch  <wk@gnupg.org>
 
 	Release 2.4.4.
