@@ -1,3 +1,34 @@
+2017-12-07  Werner Koch  <wk@gnupg.org>
+
+	Release 2.5.1.
+	+ commit 8fc922c45b66d4e4d1c6c55de617cfeef2c01357
+
+
+	Fix regression in ASSUAN_SYSTEM_NPTH_IMPL.
+	+ commit d38817fd0e24acfd295bd7f81b77254afd0cc6d5
+	* src/assuan.h.in (ASSUAN_SYSTEM_NPTH_IMPL): A void fucntion can't
+	assign.
+
+	Release 2.5.0.
+	+ commit ec92ef4ee3df1fdca7db19f691f64a2f96dcfc71
+
+
+2017-12-07  NIIBE Yutaka  <gniibe@fsij.org>
+	    wk@gnupg.org
+
+	Allow change of system hooks for assuan_sock_...
+	+ commit 90dc81682b13a7cf716a8a26b891051cbd4b0caf
+	* src/assuan-socket.c (assuan_sock_set_system_hooks): New.
+	* src/assuan.h.in (assuan_sock_set_system_hooks): New prototype.
+	* src/libassuan.def: Add new function.
+	* src/libassuan.vers: Add new function.
+
+2017-12-06  NIIBE Yutaka  <gniibe@fsij.org>
+
+	Use wrapped __assuan_usleep for _assuan_npth_usleep.
+	+ commit a627350eed5dc32bac41195462f27dee1987b0f5
+	* src/assuan.h.in (_assuan_npth_usleep): Wrap __assuan_usleep.
+
 2017-12-01  Werner Koch  <wk@gnupg.org>
 
 	Release 2.4.5.

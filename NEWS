@@ -1,3 +1,22 @@
+Noteworthy changes in version 2.5.1 (2017-12-07) [C8/A8/R1]
+------------------------------------------------
+
+ * Fix c+p error in the previous usleep fix.
+
+
+Noteworthy changes in version 2.5.0 (2017-12-07) [C8/A8/R0]
+------------------------------------------------
+
+ * New function to change the system hooks for the socket
+   interface. [#3378]
+
+ * Fix the use of the internal usleep in the nPth implementation.
+
+ * Interface changes relative to the 2.4.0 release:
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ assuan_sock_set_system_hooks   NEW.
+
+
 Noteworthy changes in version 2.4.5 (2017-12-01) [C7/A7/R5]
 ------------------------------------------------
 
