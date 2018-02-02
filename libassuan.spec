@@ -6,7 +6,7 @@
 #
 Name     : libassuan
 Version  : 2.5.1
-Release  : 13
+Release  : 14
 URL      : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.1.tar.bz2
 Source0  : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.1.tar.bz2
 Source99 : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.1.tar.bz2.sig
