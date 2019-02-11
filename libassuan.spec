@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x249B39D24F25E3B6
 #
 Name     : libassuan
-Version  : 2.5.2
-Release  : 16
-URL      : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.2.tar.bz2
-Source0  : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.2.tar.bz2
-Source99 : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.2.tar.bz2.sig
+Version  : 2.5.3
+Release  : 17
+URL      : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
+Source0  : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
+Source99 : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2.sig
 Summary  : IPC library for the GnuPG components
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.1
@@ -19,10 +19,12 @@ Requires: libassuan-license = %{version}-%{release}
 BuildRequires : libgpg-error-dev
 
 %description
-Libassuan
-===========
-This is a general purpose IPC library which is for example used
-GnuPG, GPGME and some other software.
+If you are building from GIT, run the script
+./autogen.sh
+first, to make sure that you have all the necessary maintainer tools
+are installed and to build the actual configuration files.  If you
+have just checked out from GIT, you should add the option "--force" to
+autogen.sh so that meta data is noticed by autom4te.cache.  Then run
 
 %package bin
 Summary: bin components for the libassuan package.
@@ -70,14 +72,14 @@ license components for the libassuan package.
 
 
 %prep
-%setup -q -n libassuan-2.5.2
+%setup -q -n libassuan-2.5.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544716587
+export SOURCE_DATE_EPOCH=1549894452
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -89,7 +91,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1544716587
+export SOURCE_DATE_EPOCH=1549894452
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libassuan
 cp COPYING %{buildroot}/usr/share/package-licenses/libassuan/COPYING
@@ -117,7 +119,7 @@ cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libassuan/COPYING.LIB
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libassuan.so.0
-/usr/lib64/libassuan.so.0.8.2
+/usr/lib64/libassuan.so.0.8.3
 
 %files license
 %defattr(0644,root,root,0755)

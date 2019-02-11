@@ -1,3 +1,31 @@
+2019-02-11  Werner Koch  <wk@gnupg.org>
+
+	Release 2.5.3.
+	+ commit 4de3154ea6e6e89e34760b7b9e0eed5123bb81f9
+
+
+2019-01-25  Werner Koch  <wk@gnupg.org>
+
+	socks5: Fix compiler warning on Windows.
+	+ commit 75770b1131e11075c82031bdb220591154df9e64
+	* src/assuan-socket.c (socks5_connect): Use cast macro to get the
+	hightest socket number.
+
+2019-01-25  NIIBE Yutaka  <gniibe@fsij.org>
+
+	socks5: Implement timeout to detect bogus service.
+	+ commit 5e48116051a476e1dcf5f66d9e21d8003b27ad20
+	* src/assuan-socket.c (TIMEOUT_NOT_WAITING_SOCKS5_FOREVER): New.
+	(socks5_connect): Call 'select' in order to not waiting response
+	forever.
+
+2019-01-16  NIIBE Yutaka  <gniibe@fsij.org>
+
+	build: With LD_LIBRARY_PATH defined, use --disable-new-dtags.
+	+ commit 23bf875954329458c0ac6c31e253cba44db8a648
+	* configure.ac (LDADD_FOR_TESTS_KLUDGE): New for --disable-new-dtags.
+	* tests/Makefile.am (LDADD): Use LDADD_FOR_TESTS_KLUDGE.
+
 2018-12-13  Werner Koch  <wk@gnupg.org>
 
 	Release 2.5.2.
