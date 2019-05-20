@@ -6,7 +6,7 @@
 #
 Name     : libassuan
 Version  : 2.5.3
-Release  : 17
+Release  : 18
 URL      : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
 Source0  : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
 Source99 : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2.sig
@@ -17,14 +17,13 @@ Requires: libassuan-bin = %{version}-%{release}
 Requires: libassuan-lib = %{version}-%{release}
 Requires: libassuan-license = %{version}-%{release}
 BuildRequires : libgpg-error-dev
+BuildRequires : libgpg-error-extras
 
 %description
-If you are building from GIT, run the script
-./autogen.sh
-first, to make sure that you have all the necessary maintainer tools
-are installed and to build the actual configuration files.  If you
-have just checked out from GIT, you should add the option "--force" to
-autogen.sh so that meta data is noticed by autom4te.cache.  Then run
+Libassuan
+===========
+This is a general purpose IPC library which is for example used
+GnuPG, GPGME and some other software.
 
 %package bin
 Summary: bin components for the libassuan package.
@@ -41,6 +40,7 @@ Group: Development
 Requires: libassuan-lib = %{version}-%{release}
 Requires: libassuan-bin = %{version}-%{release}
 Provides: libassuan-devel = %{version}-%{release}
+Requires: libassuan = %{version}-%{release}
 
 %description dev
 dev components for the libassuan package.
@@ -79,7 +79,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549894452
+export SOURCE_DATE_EPOCH=1558375985
+export GCC_IGNORE_WERROR=1
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -91,7 +93,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1549894452
+export SOURCE_DATE_EPOCH=1558375985
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libassuan
 cp COPYING %{buildroot}/usr/share/package-licenses/libassuan/COPYING
