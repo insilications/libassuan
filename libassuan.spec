@@ -7,9 +7,9 @@
 Name     : libassuan
 Version  : 2.5.3
 Release  : 17
-URL      : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
-Source0  : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
-Source99 : ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2.sig
+URL      : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
+Source0  : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
+Source99 : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2.sig
 Summary  : IPC library for the GnuPG components
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.1
