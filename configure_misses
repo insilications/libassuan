@@ -1,3 +1,4 @@
+Configure miss: windres
 Configure miss: ucred.h usability
 Configure miss: ucred.h presence
 Configure miss: ucred.h

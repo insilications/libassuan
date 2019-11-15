@@ -6,14 +6,15 @@
 #
 Name     : libassuan
 Version  : 2.5.3
-Release  : 18
+Release  : 19
 URL      : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
 Source0  : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
-Source99 : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2.sig
+Source1 : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2.sig
 Summary  : IPC library for the GnuPG components
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.1
 Requires: libassuan-bin = %{version}-%{release}
+Requires: libassuan-info = %{version}-%{release}
 Requires: libassuan-lib = %{version}-%{release}
 Requires: libassuan-license = %{version}-%{release}
 BuildRequires : libgpg-error-dev
@@ -46,12 +47,12 @@ Requires: libassuan = %{version}-%{release}
 dev components for the libassuan package.
 
 
-%package doc
-Summary: doc components for the libassuan package.
-Group: Documentation
+%package info
+Summary: info components for the libassuan package.
+Group: Default
 
-%description doc
-doc components for the libassuan package.
+%description info
+info components for the libassuan package.
 
 
 %package lib
@@ -73,31 +74,35 @@ license components for the libassuan package.
 
 %prep
 %setup -q -n libassuan-2.5.3
+cd %{_builddir}/libassuan-2.5.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1558375985
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1573789393
 export GCC_IGNORE_WERROR=1
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1558375985
+export SOURCE_DATE_EPOCH=1573789393
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libassuan
-cp COPYING %{buildroot}/usr/share/package-licenses/libassuan/COPYING
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libassuan/COPYING.LIB
+cp %{_builddir}/libassuan-2.5.3/COPYING %{buildroot}/usr/share/package-licenses/libassuan/842745cb706f8f2126506f544492f7a80dbe29b3
+cp %{_builddir}/libassuan-2.5.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/libassuan/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 %make_install
 
 %files
@@ -109,14 +114,14 @@ cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libassuan/COPYING.LIB
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/*.h
+/usr/include/assuan.h
 /usr/lib64/libassuan.so
 /usr/lib64/pkgconfig/libassuan.pc
 /usr/share/aclocal/*.m4
 
-%files doc
+%files info
 %defattr(0644,root,root,0755)
-%doc /usr/share/info/*
+/usr/share/info/assuan.info
 
 %files lib
 %defattr(-,root,root,-)
@@ -125,5 +130,5 @@ cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libassuan/COPYING.LIB
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/libassuan/COPYING
-/usr/share/package-licenses/libassuan/COPYING.LIB
+/usr/share/package-licenses/libassuan/842745cb706f8f2126506f544492f7a80dbe29b3
+/usr/share/package-licenses/libassuan/9a1929f4700d2407c70b507b3b2aaf6226a9543c
