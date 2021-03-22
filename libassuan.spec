@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x528897B826403ADA
 #
 Name     : libassuan
-Version  : 2.5.4
-Release  : 20
-URL      : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.4.tar.bz2
-Source0  : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.4.tar.bz2
-Source1  : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.4.tar.bz2.sig
+Version  : 2.5.5
+Release  : 21
+URL      : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.5.tar.bz2
+Source0  : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.5.tar.bz2
+Source1  : https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.5.tar.bz2.sig
 Summary  : IPC library for the GnuPG components
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.1
@@ -73,15 +73,15 @@ license components for the libassuan package.
 
 
 %prep
-%setup -q -n libassuan-2.5.4
-cd %{_builddir}/libassuan-2.5.4
+%setup -q -n libassuan-2.5.5
+cd %{_builddir}/libassuan-2.5.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1603843592
+export SOURCE_DATE_EPOCH=1616435190
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -98,11 +98,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1603843592
+export SOURCE_DATE_EPOCH=1616435190
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libassuan
-cp %{_builddir}/libassuan-2.5.4/COPYING %{buildroot}/usr/share/package-licenses/libassuan/842745cb706f8f2126506f544492f7a80dbe29b3
-cp %{_builddir}/libassuan-2.5.4/COPYING.LIB %{buildroot}/usr/share/package-licenses/libassuan/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/libassuan-2.5.5/COPYING %{buildroot}/usr/share/package-licenses/libassuan/842745cb706f8f2126506f544492f7a80dbe29b3
+cp %{_builddir}/libassuan-2.5.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/libassuan/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 %make_install
 
 %files
@@ -126,7 +126,7 @@ cp %{_builddir}/libassuan-2.5.4/COPYING.LIB %{buildroot}/usr/share/package-licen
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libassuan.so.0
-/usr/lib64/libassuan.so.0.8.4
+/usr/lib64/libassuan.so.0.8.5
 
 %files license
 %defattr(0644,root,root,0755)
