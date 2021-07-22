@@ -1,5 +1,6 @@
 PKG_NAME := libassuan
-URL = https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.5.tar.bz2
+URL = https://dev.gnupg.org/source/libassuan.git
 ARCHIVES = 
+ARCHIVES_GIT = 
 
 include ../common/Makefile.common
